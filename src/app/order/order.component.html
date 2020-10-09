@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+
+<div class="container">
+  <button type="button" class="btn btn-primary" (click)="createOrder()">Create order</button>
+</div>
+
+<div class="row" style="margin-top:12px;">
+  <div class="col-md-8">
+  <input type="text"
+         [(ngModel)]="searchText"
+         class="form-control"
+         style="width: 100%;"
+         placeholder="Search orders...">
+  </div>
+</div>
+
+<div class="panel-body">
+  <table class="table table-striped" >
+    <thead>
+    <tr>
+      <th>№</th>
+      <th>Date</th>
+      <th>Doctor</th>
+      <th>Note</th>
+      <th>Status</th>
+      <th>Time</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr *ngFor="let order of orders | async | orderTextFilter:searchText">
+      <td>{{order.id}}</td>
+      <td>{{order.date}}</td>
+      <td>{{order.doctor}}</td>
+      <td>{{order.note}}</td>
+      <td>{{order.status}}</td>
+      <td>{{order.time}}</td>
+      <td>
+       <button (click)="deleteOrder(order.id)" class="btn btn-danger">Delete</button>
+       <button (click)="updateOrder(order.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
+      </td>
+    </tr>
+
+    </tbody>
+  </table>
+</div>
+</body>
+
+</html>

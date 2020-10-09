@@ -1,0 +1,21 @@
+<div style="width: 400px;" xmlns:th="http://www.w3.org/1999/xhtml">
+  <form  (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" id="name" required [(ngModel)]="user.name" name="name">
+            </div>
+
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" class="form-control" id="username" required [(ngModel)]="user.username" name="username">
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="text" class="form-control" id="password" required [(ngModel)]="user.password" name="password">
+            </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
